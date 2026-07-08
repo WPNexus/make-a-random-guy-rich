@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title data-i18n="pageTitle">Help Me Get Rich</title>
+  <meta name="description" content="I tried working. It didn't make me rich. Help me pay my debt, breathe easier, and maybe get rich." />
+
+  <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <a href="#home" class="logo">
+      HELP ME <span>GET RICH.</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#story" data-i18n="navStory">My Story</a>
+      <a href="#plan" data-i18n="navPlan">The Plan</a>
+      <a href="#impact" data-i18n="navImpact">Impact</a>
+      <a href="#faq" data-i18n="navFaq">FAQ</a>
+    </nav>
+
+    <button class="btn btn-small" onclick="openDonateModal()" data-i18n="donateNow">Donate Now</button>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <p class="eyebrow" data-i18n="heroEyebrow">The world’s most honest personal crowdfunding page</p>
+
+        <h1 data-i18n="heroTitle">I tried working. It didn’t make me rich.</h1>
+
+        <p class="hero-text" data-i18n="heroText">
+          After years of working hard and trying almost everything, I’m asking the internet for help.
+          No shame. Just strategy.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="btn" onclick="openDonateModal()" data-i18n="heroButton">Help Me Get Rich</button>
+          <a href="#story" class="btn btn-outline" data-i18n="readStory">Read My Story</a>
+        </div>
+
+        <p class="small-note" data-i18n="noPressure">No pressure. Seriously.</p>
+      </div>
+
+      <div class="hero-image">
+        <img src="Image/hero.png" alt="Rifqi holding donation sign" />
+      </div>
+    </section>
+
+    <section class="marquee">
+      <div data-i18n="marqueeText">
+        Taxi Driver → Waiter → Cleaner → Quality Control → Contractor → Technical Drafter →
+        Private Driver → Personal Assistant → CMO → CTO → MLM → Still In Debt →
+      </div>
+    </section>
+
+    <section id="story" class="section story-section">
+      <div class="story-text">
+        <h2 data-i18n="storyTitle">I really did try.</h2>
+
+        <p data-i18n="storyP1">I’ve had more jobs than financial breakthroughs.</p>
+
+        <p data-i18n="storyP2">
+          Taxi driver. Waiter. Cleaner. Quality Control. Contractor. Technical Drafter.
+          Private Driver. Personal Assistant. CMO. CTO. Multi-Level Marketing.
+        </p>
+
+        <p class="yellow" data-i18n="storyP3">
+          Different jobs. Different salaries. Different levels of exhaustion. Same debt.
+        </p>
+
+        <p data-i18n="storyP4">
+          At this point, I have to consider the possibility that working alone may not be enough.
+        </p>
+      </div>
+
+      <div class="story-image">
+        <img src="Image/photo-3.png" alt="Career journey photo" />
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="center" data-i18n="whyTitle">Why donate?</h2>
+
+      <div class="cards three">
+        <div class="card">
+          <div class="icon">♥</div>
+          <h3 data-i18n="why1Title">My debt is very loyal.</h3>
+          <p data-i18n="why1Text">
+            Jobs come and go. Opportunities come and go.
+            But my debt stays. Please help us break up.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⚙</div>
+          <h3 data-i18n="why2Title">I already tried working harder.</h3>
+          <p data-i18n="why2Text">
+            Excellent idea. I’ve been testing it for years.
+            Results remain disappointing.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⚗</div>
+          <h3 data-i18n="why3Title">Money can’t buy happiness.</h3>
+          <p data-i18n="why3Text">
+            Maybe. But I’m willing to participate in this important scientific experiment.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="plan" class="section">
+      <h2 class="center" data-i18n="planTitle">The financial plan</h2>
+
+      <div class="cards four">
+        <div class="card stat">
+          <strong>60%</strong>
+          <h3 data-i18n="plan1Title">Paying debt</h3>
+          <p data-i18n="plan1Text">The responsible part. Very boring. Unfortunately necessary.</p>
+        </div>
+
+        <div class="card stat">
+          <strong>25%</strong>
+          <h3 data-i18n="plan2Title">Surviving</h3>
+          <p data-i18n="plan2Text">Food. Bills. Life. Apparently, staying alive is a subscription service.</p>
+        </div>
+
+        <div class="card stat">
+          <strong>10%</strong>
+          <h3 data-i18n="plan3Title">Enjoying life</h3>
+          <p data-i18n="plan3Text">Maybe ordering food without sorting the menu from cheapest first.</p>
+        </div>
+
+        <div class="card stat">
+          <strong>5%</strong>
+          <h3 data-i18n="plan4Title">Questionable decisions</h3>
+          <p data-i18n="plan4Text">Transparency is important.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact" class="section">
+      <h2 class="center" data-i18n="impactTitle">Choose your impact</h2>
+
+      <div class="impact-grid">
+        <button onclick="openDonateModal('$5')"><strong>$5</strong><span data-i18n="impact5">Moral Support</span></button>
+        <button onclick="openDonateModal('$25')"><strong>$25</strong><span data-i18n="impact25">Debt Annoyer</span></button>
+        <button onclick="openDonateModal('$100')"><strong>$100</strong><span data-i18n="impact100">Serious Supporter</span></button>
+        <button onclick="openDonateModal('$500')"><strong>$500</strong><span data-i18n="impact500">Financial Hero</span></button>
+        <button onclick="openDonateModal('$1,000')"><strong>$1,000</strong><span data-i18n="impact1000">Absolute Legend</span></button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="center" data-i18n="helpTitle">How you can help</h2>
+
+      <div class="cards three">
+        <div class="card">
+          <h3>PayPal</h3>
+          <p data-i18n="paypalText">Fast. Simple. International. And most importantly... money.</p>
+          <a class="btn full" href="https://paypal.me/rifqiben23" target="_blank" data-i18n="paypalButton">Donate With PayPal</a>
+        </div>
+
+        <div class="card">
+          <h3>Crypto</h3>
+          <p data-i18n="cryptoText">Bitcoin and USDT. Choose your preferred network carefully.</p>
+          <button class="btn full" onclick="openDonateModal('crypto')" data-i18n="cryptoButton">View Crypto Options</button>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="bankTitle">Bank Transfer</h3>
+          <p data-i18n="bankText">Prefer traditional banking? Request my bank details securely.</p>
+          <button class="btn full" onclick="openDonateModal('bank')" data-i18n="bankButton">Request Bank Details</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section special-donor">
+      <div class="special-donor-box">
+        <p class="eyebrow" data-i18n="specialEyebrow">FOR SERIOUSLY GENEROUS PEOPLE</p>
+        <h2 data-i18n="specialTitle">Planning Something Suspiciously Generous?</h2>
+
+        <p class="special-donor-text" data-i18n="specialText1">
+          Want to make a large donation, request bank transfer details,
+          or simply confirm that I am a real person with very real debt?
+        </p>
+
+        <p class="special-donor-text" data-i18n="specialText2">Feel free to contact me directly.</p>
+
+        <div class="contact-options">
+          <div class="contact-item">
+            <span class="contact-label">SIGNAL</span>
+            <strong>masbenverse.88</strong>
+            <p data-i18n="signalText">
+              For private conversations, generous ideas,
+              and people who type “I’d like to help” without joking.
+            </p>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">EMAIL</span>
+            <a href="mailto:masben.social@pm.me">masben.social@pm.me</a>
+            <p data-i18n="emailText">
+              For bank transfer requests, questions,
+              or financial miracles that require paperwork.
+            </p>
+          </div>
+        </div>
+
+        <p class="special-note" data-i18n="specialNote">
+          Please don’t send investment offers, crypto schemes,
+          MLM opportunities, or advice telling me to “just work harder.”
+          I’ve already tried enough things.
+        </p>
+      </div>
+    </section>
+
+    <section id="faq" class="section faq">
+      <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+
+      <details><summary data-i18n="faq1Q">Is this serious?</summary><p data-i18n="faq1A">Unfortunately, yes.</p></details>
+      <details><summary data-i18n="faq2Q">Is this a joke?</summary><p data-i18n="faq2A">Also yes. Life is complicated.</p></details>
+      <details><summary data-i18n="faq3Q">Is this a charity?</summary><p data-i18n="faq3A">No. This is personal financial support.</p></details>
+      <details><summary data-i18n="faq4Q">Is this an investment?</summary><p data-i18n="faq4A">No shares. No tokens. No guaranteed returns. Just gratitude.</p></details>
+      <details><summary data-i18n="faq5Q">Why don’t you just work harder?</summary><p data-i18n="faq5A">Great idea. I’ve been testing it for years.</p></details>
+    </section>
+
+    <section class="final-cta">
+      <div class="final-image">
+        <img src="Image/CTA.png" alt="Rifqi holding coffee for final donation call to action" />
+      </div>
+
+      <div class="final-text">
+        <h2 data-i18n="finalTitle">Still here. Still in debt. Still accepting donations.</h2>
+        <p data-i18n="finalText">Help me pay my debt. And if we accidentally go too far... help me get rich.</p>
+        <button class="btn" onclick="openDonateModal()" data-i18n="heroButton">Help Me Get Rich</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <strong>HELP ME <span>GET RICH.</span></strong>
+    <p data-i18n="footerText">Personal donation page. Not a charity. Not an investment. No returns promised.</p>
+  </footer>
+
+  <div class="modal" id="donateModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeDonateModal()">×</button>
+
+      <h2 data-i18n="modalTitle">Choose Payment Method</h2>
+      <p id="selectedAmount" class="selected-amount"></p>
+
+      <div class="payment-tabs">
+        <button onclick="showPayment('paypal')">PayPal</button>
+        <button onclick="showPayment('crypto')">Crypto</button>
+        <button onclick="showPayment('bank')" data-i18n="bankTitle">Bank Transfer</button>
+      </div>
+
+      <div class="payment-panel active" id="paypal">
+        <p data-i18n="paypalModalText">Donate using PayPal.Me:</p>
+        <a href="https://paypal.me/rifqiben23" target="_blank" class="btn full" data-i18n="paypalButton">Donate With PayPal</a>
+      </div>
+
+      <div class="payment-panel" id="crypto">
+        <p data-i18n="cryptoModalText">Choose coin and network:</p>
+
+        <div class="crypto-buttons">
+          <button onclick="showWallet('BTC')">Bitcoin</button>
+          <button onclick="showWallet('TRC20')">USDT TRC20</button>
+          <button onclick="showWallet('ERC20')">USDT ERC20</button>
+          <button onclick="showWallet('BEP20')">USDT BEP20</button>
+        </div>
+
+        <div class="wallet-box" id="walletBox" data-i18n="walletDefault">
+          Select a crypto option first.
+        </div>
+
+        <p class="warning" data-i18n="cryptoWarning">
+          Only send using the selected network. Crypto transactions are irreversible.
+        </p>
+      </div>
+
+      <div class="payment-panel" id="bank">
+        <p data-i18n="bankModalText">Fill this form to request bank transfer details.</p>
+
+        <form action="mailto:masben.social@pm.me" method="post" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your name" data-i18n-placeholder="formName" required />
+          <input type="email" name="email" placeholder="Your email" data-i18n-placeholder="formEmail" required />
+          <input type="text" name="country" placeholder="Country" data-i18n-placeholder="formCountry" />
+          <input type="text" name="currency" placeholder="Preferred currency" data-i18n-placeholder="formCurrency" />
+
+          <button type="submit" class="btn full" data-i18n="bankButton">Request Bank Details</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
