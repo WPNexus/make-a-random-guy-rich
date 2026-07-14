@@ -600,116 +600,14 @@
           </button>
         </form>
       </div>
-
-      <div class="payment-proof-toggle">
+      <div class="thank-you-action">
         <button
           class="btn btn-outline full"
-          id="toggleProofButton"
+          id="thankYouButton"
           type="button"
-          aria-controls="proofFormWrap"
-          aria-expanded="false"
         >
-          I Already Donated — Where Is My Recognition?
+          I Donated — Where Is My Thank You?
         </button>
-
-        <div class="proof-form-wrap" id="proofFormWrap">
-          <div class="payment-proof">
-            <h3>Prove Your Generosity</h3>
-
-            <p>
-              Already donated? Send me the receipt so I can confirm the transaction,
-              update my extremely advanced accounting system, and quietly celebrate.
-            </p>
-
-            <form
-              id="proofForm"
-              action="https://api.web3forms.com/submit"
-              method="POST"
-              enctype="multipart/form-data"
-            >
-              <input
-                type="hidden"
-                name="access_key"
-                value="57f48f71-5ac5-408a-8d8d-6883d4cce3d2"
-              />
-
-              <input
-                type="hidden"
-                name="subject"
-                value="New donation proof from onebuckguy.com"
-              />
-
-              <input
-                type="hidden"
-                name="from_name"
-                value="One Buck Guy Website"
-              />
-
-              <input
-                type="text"
-                name="name"
-                placeholder="Your name, nickname, or mysterious alias"
-                required
-              />
-
-              <input
-                type="email"
-                name="email"
-                placeholder="Your email"
-                required
-              />
-
-              <input
-                type="number"
-                name="amount"
-                min="1"
-                step="0.01"
-                inputmode="decimal"
-                placeholder="How much damage did you do to your wallet?"
-                required
-              />
-
-              <select name="payment_method" required>
-                <option value="">How did the money escape?</option>
-                <option value="PayPal">PayPal</option>
-                <option value="Bank Transfer">Bank Transfer</option>
-                <option value="Bitcoin">Bitcoin</option>
-                <option value="USDT TRC20">USDT TRC20</option>
-                <option value="USDT ERC20">USDT ERC20</option>
-                <option value="USDT BEP20">USDT BEP20</option>
-              </select>
-
-              <input
-                type="text"
-                name="transaction_id"
-                placeholder="Transaction ID — optional, but impressively professional"
-              />
-
-              <label class="upload-label" for="proofFile">
-                Upload Evidence of Generosity
-              </label>
-
-              <input
-                id="proofFile"
-                type="file"
-                name="attachment"
-                accept=".jpg,.jpeg,.png,.webp,.pdf"
-                required
-              />
-
-              <p class="upload-note">
-                Please hide sensitive personal and financial information.
-                I need proof of payment. Not your entire identity.
-              </p>
-
-              <button type="submit" class="btn full">
-                Submit Evidence to the Financial Department
-              </button>
-
-              <p id="proofStatus" class="proof-status" aria-live="polite"></p>
-            </form>
-          </div>
-        </div>
       </div>
     </div>
   </div>
