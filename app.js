@@ -22,10 +22,7 @@ const selectedAmount = document.getElementById("selectedAmount");
 const navLinks = document.getElementById("navLinks");
 const menuButton = document.getElementById("menuButton");
 const closeModalButton = document.getElementById("closeModalButton");
-const proofFormWrap = document.getElementById("proofFormWrap");
-const toggleProofButton = document.getElementById("toggleProofButton");
-const proofForm = document.getElementById("proofForm");
-const proofStatus = document.getElementById("proofStatus");
+const thankYouButton = document.getElementById("thankYouButton");
 
 function toggleMenu() {
   const isOpen = navLinks.classList.toggle("open");
@@ -43,8 +40,6 @@ function showPayment(method) {
 }
 
 function openDonateModal(option = "") {
-  if (!modal) return;
-
   modal.classList.add("show");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
@@ -61,8 +56,6 @@ function openDonateModal(option = "") {
 }
 
 function closeDonateModal() {
-  if (!modal) return;
-
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
@@ -110,7 +103,6 @@ function openCustomDonation() {
       "Tiny problem.",
       "Please enter at least $1. Even capitalism has standards."
     );
-
     input.focus();
     return;
   }
@@ -121,18 +113,6 @@ function openCustomDonation() {
   });
 
   openDonateModal(`$${formattedAmount}`);
-}
-
-function toggleProofForm() {
-  const isOpen = proofFormWrap.classList.toggle("show");
-  toggleProofButton.setAttribute("aria-expanded", String(isOpen));
-
-  if (isOpen) {
-    proofFormWrap.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest"
-    });
-  }
 }
 
 function showToast(title, message) {
@@ -150,17 +130,20 @@ function showToast(title, message) {
   toast.append(titleElement, messageElement);
   document.body.appendChild(toast);
 
-  requestAnimationFrame(() => {
-    toast.classList.add("show");
-  });
+  requestAnimationFrame(() => toast.classList.add("show"));
 
   window.setTimeout(() => {
     toast.classList.remove("show");
-
-    window.setTimeout(() => {
-      toast.remove();
-    }, 400);
+    window.setTimeout(() => toast.remove(), 400);
   }, 5000);
+}
+
+function showDonationThanks() {
+  closeDonateModal();
+  showToast(
+    "You absolute legend.",
+    "Thank you for supporting my questionable financial journey. My debt is now slightly more nervous."
+  );
 }
 
 document.querySelectorAll("[data-open-donate]").forEach((button) => {
@@ -168,27 +151,19 @@ document.querySelectorAll("[data-open-donate]").forEach((button) => {
 });
 
 document.querySelectorAll("[data-open-method]").forEach((button) => {
-  button.addEventListener("click", () => {
-    openDonateModal(button.dataset.openMethod);
-  });
+  button.addEventListener("click", () => openDonateModal(button.dataset.openMethod));
 });
 
 document.querySelectorAll("[data-amount]").forEach((button) => {
-  button.addEventListener("click", () => {
-    openDonateModal(button.dataset.amount);
-  });
+  button.addEventListener("click", () => openDonateModal(button.dataset.amount));
 });
 
 document.querySelectorAll("[data-payment-tab]").forEach((button) => {
-  button.addEventListener("click", () => {
-    showPayment(button.dataset.paymentTab);
-  });
+  button.addEventListener("click", () => showPayment(button.dataset.paymentTab));
 });
 
 document.querySelectorAll("[data-wallet]").forEach((button) => {
-  button.addEventListener("click", () => {
-    showWallet(button.dataset.wallet);
-  });
+  button.addEventListener("click", () => showWallet(button.dataset.wallet));
 });
 
 document.querySelectorAll(".nav-links a").forEach((link) => {
@@ -200,68 +175,15 @@ document.querySelectorAll(".nav-links a").forEach((link) => {
 
 menuButton.addEventListener("click", toggleMenu);
 closeModalButton.addEventListener("click", closeDonateModal);
-toggleProofButton.addEventListener("click", toggleProofForm);
-
-document
-  .getElementById("customAmountButton")
-  .addEventListener("click", openCustomDonation);
+thankYouButton.addEventListener("click", showDonationThanks);
+document.getElementById("customAmountButton").addEventListener("click", openCustomDonation);
 
 modal.addEventListener("click", (event) => {
-  if (event.target === modal) {
-    closeDonateModal();
-  }
+  if (event.target === modal) closeDonateModal();
 });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && modal.classList.contains("show")) {
     closeDonateModal();
-  }
-});
-
-proofForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  const submitButton = proofForm.querySelector('button[type="submit"]');
-  proofStatus.textContent = "Sending evidence of financial heroism...";
-  proofStatus.className = "proof-status";
-  submitButton.disabled = true;
-
-  try {
-    const formData = new FormData(proofForm);
-
-    const response = await fetch(proofForm.action, {
-      method: "POST",
-      body: formData
-    });
-
-    const result = await response.json();
-
-    if (!response.ok || !result.success) {
-      throw new Error(result.message || "Submission failed");
-    }
-
-    proofForm.reset();
-    proofStatus.textContent = "The money department has been notified.";
-    proofStatus.className = "proof-status success";
-
-    window.setTimeout(() => {
-      closeDonateModal();
-      proofFormWrap.classList.remove("show");
-      toggleProofButton.setAttribute("aria-expanded", "false");
-
-      showToast(
-        "Evidence received.",
-        "You are now officially part of my financial recovery arc."
-      );
-    }, 1200);
-  } catch (error) {
-    console.error(error);
-
-    proofStatus.textContent =
-      "The internet rejected the evidence. Please try again.";
-
-    proofStatus.className = "proof-status error";
-  } finally {
-    submitButton.disabled = false;
   }
 });
